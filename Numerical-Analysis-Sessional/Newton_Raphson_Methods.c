@@ -14,7 +14,6 @@ void newton_Raphson_methods(double x0, double tol)
     double x = x0;
     double fx, dfx, er;
     int i = 0;
-    const int maxIterations = 100;
     printf("Iteration\t x\t\t f(x)\t\t f'(x)\t\t Error\n");
     printf("--------------------------------------------------------------------\n");
 
@@ -34,11 +33,6 @@ void newton_Raphson_methods(double x0, double tol)
         x = x_new;
         i++;
 
-        if (i >= maxIterations)
-        {
-            printf("..\n");
-            return;
-        }
 
     } while (er > tol);
 
