@@ -8,10 +8,19 @@ void forward_table(int size)
     {
         printf("x[%d]=",i);
         scanf("%lf",&x[i]);
-        printf("Enter the value of y ");
+        printf("y[%d] = ",i);
         scanf("%lf",&y[i][0]);
 
     }
+    for (int i=1;i<size;i++)
+    {
+        for (int j=0;j<size-i;j++)
+        {
+            y[j][i]= y[j+1][i-1]-y[j][i-1];
+        }
+    }
+
+
     printf("\nForward Difference Table\n");
     for(int i=0;i<size;i++)
     {
