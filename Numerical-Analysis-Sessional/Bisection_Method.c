@@ -11,7 +11,7 @@ void bisection_method(double a,double b)
 {
     int i=0;
     double c=0.0,c_old=0.0,tol=0.05;
-    double z=0;
+    double error=0;
 
     if(f(a)*f(b)>=0)
     {
@@ -31,14 +31,14 @@ void bisection_method(double a,double b)
 
          if (c != 0)
          {
-             z = fabs((c - c_old) / c);
+             error = fabs((c - c_old) / c);
          }
          else
          {
-             z = fabs(c - c_old);
+             error = fabs(c - c_old);
          }
 
-         printf("%d\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\n",i,a,b,c,fa,fb,fc,z);
+         printf("%d\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\t%lf\n",i,a,b,c,fa,fb,fc,error);
 
          if(fc==0.0)
          {
@@ -57,7 +57,7 @@ void bisection_method(double a,double b)
 
          i++;
      }
-     while(z>=tol);
+     while(error>=tol);
      printf("\n ROOT is =%.4lf\n",c);
 }
 
