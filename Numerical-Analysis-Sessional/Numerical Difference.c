@@ -37,6 +37,7 @@ void numerical_differentiation(int size,double n)
     double h = x[1] - x[0];
     double z;
     z=(1.0/h)*(y[1][1]-(1.0/2.0)*y[1][2]+(1.0/3.0)*y[1][3]-(1.0/4.0)*y[1][4]+(1.0/5.0)*y[1][5]);
+
     printf("%lf",z);
 
 }

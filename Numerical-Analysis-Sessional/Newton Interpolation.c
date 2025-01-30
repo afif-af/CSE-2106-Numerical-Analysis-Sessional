@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<math.h>
 
-void newton_interpolation(int size,double n)
+void newton_interpolation(int size,double v)
 {
     double x[30],y[30][30];
     printf("Enter value of x & y:\n");
@@ -32,15 +32,19 @@ void newton_interpolation(int size,double n)
         printf("\n");
     }
 
-    double h = x[1] - x[0];
-    double p = (n - x[0]) / h;
+    double h=x[1]-x[0];
+    double p=(v-x[0])/h;
 
-    double z = y[0][0] +
-               p * y[0][1] +
-               (p * (p - 1) / 2.0) * y[0][2] +
-               (p * (p - 1) * (p - 2) / 6.0) * y[0][3];
+    double result=y[0][0];
+    double term=1.0;
+
+    for(int i=1;i<size;i++)
+    {
+        term *=(-(i-1))/i;
+        result+=term*y[0][i];
+    }
     printf("\n");
-    printf("value is =%lf",z);
+    printf("\nvalue is: %f ",result);
 
 
 
@@ -50,12 +54,12 @@ void newton_interpolation(int size,double n)
 int main()
 {
     int size;
-    double n;
+    double v;
     printf("Enter size of table : ");
     scanf("%d",&size);
     printf("Enter position you find: ");
-    scanf("%lf",&n);
-    newton_interpolation(size,n);
+    scanf("%lf",&v);
+    newton_interpolation(size,v);
 
     return 0;
 }

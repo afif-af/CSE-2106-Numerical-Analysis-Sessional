@@ -18,15 +18,15 @@ int main()
             scanf("%lf",&array[i][j]);
         }
     }
+
     for(int i=0;i<n-1;i++)
     {
         for(int j=i+1;j<n;j++)
         {
-            double f=array[j][i]/array[i][i];
+            double ratio=array[j][i]/array[i][i];
             for(int k=i;k<n+1;k++)
             {
-                array[j][k]=array[j][k]-f*array[i][k];
-
+                array[j][k]=array[j][k]-ratio*array[i][k];
             }
         }
     }
@@ -44,7 +44,6 @@ int main()
     for(int i=0;i<n;i++)
     {
         printf("x[%d]=%f\n",i+1,x[i]);
-
     }
   return 0;
 }
